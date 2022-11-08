@@ -1,0 +1,21 @@
+version: '3.6'
+services:
+  frpc:
+    image: rayruan/amd64_frp:${FRP_IMAGE_TAG:-latest}
+    container_name: sshd_frpc
+    environment:
+      PUID: 1000
+      PGID: 1000
+    ports:
+      - "${SSHD_FRPS_SERVER_PORT:-7101}:${SSHD_FRPS_SERVER_PORT:-7101}/tcp"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - ${INSTALL_ROOT_PATH}/${SERVER_NAME}/${CFGS_DIR}/frpc.ini:/etc/frp/frpc.ini:ro
+      - ${INSTALL_ROOT_PATH}/${SERVER_NAME}/frpc_entrypoint.sh:/app/frpc_entrypoint.sh:ro
+      - ${INSTALL_ROOT_PATH}/${SERVER_NAME}/${CERTIFICATES_DIR}/client.crt:/client.crt:ro
+      - ${INSTALL_ROOT_PATH}/${SERVER_NAME}/${CERTIFICATES_DIR}/client.key:/client.key:ro
+      - ${INSTALL_ROOT_PATH}/${SERVER_NAME}/${CERTIFICATES_DIR}/rootCA.crt:/rootCA.crt:ro
+    entrypoint: /app/frpc_entrypoint.sh
+    restart: always
+    
