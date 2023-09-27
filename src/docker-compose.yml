@@ -1,13 +1,13 @@
 version: '3.6'
 services:
   frpc:
-    image: rayruan/amd64_frp:${FRP_IMAGE_TAG:-latest}
-    container_name: sshd_frpc
+    image: rayruan/amd64_frp_socat:${FRP_IMAGE_TAG:-latest}
+    container_name: "${SERVER_NAME}_${FRP_IMAGE_TAG}"
     environment:
       PUID: 1000
       PGID: 1000
-    ports:
-      - "${SSHD_FRPS_SERVER_PORT:-7101}:${SSHD_FRPS_SERVER_PORT:-7101}/tcp"
+        # ports:
+        #      - "${SSHD_FRPS_SERVER_PORT:-7101}:${SSHD_FRPS_SERVER_PORT:-7101}/tcp"
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro

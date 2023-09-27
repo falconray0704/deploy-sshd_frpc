@@ -7,8 +7,10 @@
 Just refer to official document.
 The most required variables are:
 
+* `server_port` : frps binding port.
+* `custom_domains` : identification for frpc host.
 * `token` : token for authentication between frpc and frps.
-* `remote_port` : token for authentication between frpc and frps.
+* `remote_port` : # The ssh access port which is required frps to listen for this frpc-vhost.
 
 
 # 2. Install certificates
