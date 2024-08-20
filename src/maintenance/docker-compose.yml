@@ -2,7 +2,7 @@ version: '3.6'
 services:
   frpc:
     image: rayruan/amd64_frp_socat:${FRP_IMAGE_TAG:-latest}
-    container_name: "${SERVER_NAME}_${FRP_IMAGE_TAG}"
+    container_name: "${SERVER_NAME}_503_${FRP_IMAGE_TAG}"
     environment:
       PUID: 1000
       PGID: 1000
@@ -11,11 +11,11 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
-      - ${INSTALL_ROOT_PATH}/${SERVER_NAME}/${CFGS_DIR}/frpc.ini:/etc/frp/frpc.ini:ro
-      - ${INSTALL_ROOT_PATH}/${SERVER_NAME}/frpc_entrypoint.sh:/app/frpc_entrypoint.sh:ro
-      - ${INSTALL_ROOT_PATH}/${SERVER_NAME}/${CERTIFICATES_DIR}/client.crt:/client.crt:ro
-      - ${INSTALL_ROOT_PATH}/${SERVER_NAME}/${CERTIFICATES_DIR}/client.key:/client.key:ro
-      - ${INSTALL_ROOT_PATH}/${SERVER_NAME}/${CERTIFICATES_DIR}/rootCA.crt:/rootCA.crt:ro
+      - ${INSTALL_ROOT_PATH}/${SERVER_NAME}_503/${CFGS_DIR}/frpc_503.ini:/etc/frp/frpc.ini:ro
+      - ${INSTALL_ROOT_PATH}/${SERVER_NAME}_503/frpc_entrypoint.sh:/app/frpc_entrypoint.sh:ro
+      - ${INSTALL_ROOT_PATH}/${SERVER_NAME}_503/${CERTIFICATES_DIR}/client.crt:/client.crt:ro
+      - ${INSTALL_ROOT_PATH}/${SERVER_NAME}_503/${CERTIFICATES_DIR}/client.key:/client.key:ro
+      - ${INSTALL_ROOT_PATH}/${SERVER_NAME}_503/${CERTIFICATES_DIR}/rootCA.crt:/rootCA.crt:ro
     entrypoint: /app/frpc_entrypoint.sh
     restart: always
     
