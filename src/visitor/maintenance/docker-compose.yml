@@ -6,10 +6,12 @@ services:
     environment:
       PUID: 1000
       PGID: 1000
+    ports:
+      - "127.0.0.1:${SSHD_VISITOR_PORT_503}:${SSHD_VISITOR_PORT_503}"
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
-      - ${INSTALL_ROOT_PATH}/${SERVER_NAME}_503/${CFGS_DIR}/frpc_503.toml:/etc/frp/frpc.toml:ro
+      - ${INSTALL_ROOT_PATH}/${SERVER_NAME}_503/${CFGS_DIR}/frpc_stcp_visitor_503.toml:/etc/frp/frpc.toml:ro
       - ${INSTALL_ROOT_PATH}/${SERVER_NAME}_503/frpc_entrypoint.sh:/app/frpc_entrypoint.sh:ro
       - ${INSTALL_ROOT_PATH}/${SERVER_NAME}_503/${CERTS_DIR}/client.crt:/client.crt:ro
       - ${INSTALL_ROOT_PATH}/${SERVER_NAME}_503/${CERTS_DIR}/client.key:/client.key:ro

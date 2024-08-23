@@ -36,13 +36,13 @@ SERVER_DIR=${SERVER_NAME}
 SERVER_HOME=${DEPLOY_ROOT}/${SERVER_DIR}
 
 SUPPORTED_CMD="deploy"
-SUPPORTED_TARGETS="sshd_frpc"
+SUPPORTED_TARGETS="frpc_sshd"
 
 EXEC_CMD=""
 EXEC_ITEMS_LIST=""
 
 
-deploy_sshd_frpc()
+deploy_frpc_sshd()
 {
     if [ ! -d ${DEPLOY_ROOT} ]
     then
@@ -56,7 +56,7 @@ deploy_sshd_frpc()
         echoY "Deploying ${SERVER_NAME}..."
         cp -a ./src ${SERVER_HOME}
 
-        mkdir -p ${SERVER_HOME}/${CERTIFICATES_DIR}
+        mkdir -p ${SERVER_HOME}/${CERTS_DIR}
         echoG "${SERVER_NAME} has been deployed to ${DEPLOY_ROOT}/${SERVER_NAME} successfully."
 
         cat ./src/README.md

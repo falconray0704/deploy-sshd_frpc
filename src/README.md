@@ -3,19 +3,20 @@
 ## 1.1 Specify following variables in `.env` file for your domain.
 
 
-## 1.2 Specify following variables in `cfgs/frpc.ini` file for your domain.
+## 1.2 Specify following variables in `cfgs/frpc.toml` file for your domain.
 Just refer to official document.
 The most required variables are:
 
-* `server_port` : frps binding port.
-* `custom_domains` : identification for frpc host.
-* `token` : token for authentication between frpc and frps.
-* `remote_port` : # The ssh access port which is required frps to listen for this frpc-vhost.
+* `serverAddr` : frps IP.
+* `serverPort` : frps binding port.
+* `auth.token` : token for authentication between frpc and frps.
+* `customDomains` : identification for frpc host.
+* `remotePort` : # The ssh access port which is required frps to listen for this frpc-vhost.
 
 
 # 2. Install certificates
 
-Install certificates for tls between frpc and frps to `$INSTALL_ROOT_PATH`/`INSTALL_DIR`/`CERTIFICATES_DIR` which defined in `.env` file. 
+Install certificates for tls between frpc and frps to `$INSTALL_ROOT_PATH`/`INSTALL_DIR`/`CERTS_DIR` which defined in `.env` file. 
 
 ## 2.1 Obtain certificates
 
