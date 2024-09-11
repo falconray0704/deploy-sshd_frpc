@@ -62,3 +62,29 @@ secretKey = "abcdefg"
 bindAddr = "0.0.0.0"
 bindPort = 65114
 
+[[visitors]]
+name = "secret_ssh_xtcp_visitor_hostname"
+type = "xtcp"
+serverName = "secret_ssh_xtcp_hostname"
+secretKey = "abcdefg"
+bindAddr = "0.0.0.0"
+bindPort = 60114
+
+
+[[visitors]]
+name = "secret_iperf_visitor_hostname"
+type = "stcp"
+serverName = "secret_iperf_stcp_hostname"
+secretKey = "abcdefg"
+bindAddr = "0.0.0.0"
+bindPort = 65201
+
+[[visitors]]
+name = "secret_iperf_xtcp_visitor_hostname"
+type = "xtcp"
+serverName = "secret_iperf_xtcp_hostname"
+secretKey = "abcdefg"
+bindAddr = "0.0.0.0"
+bindPort = 60201
+
+

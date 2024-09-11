@@ -84,3 +84,27 @@ secretKey = "abcdefg"
 localIP = "192.168.17.14"
 localPort = 22
 
+[[proxies]]
+name = "secret_ssh_xtcp_hostname"
+type = "xtcp"
+secretKey = "abcdefg"
+# LAN IP of the host 
+localIP = "192.168.17.14"
+localPort = 22
+
+[[proxies]]
+name = "secret_iperf_stcp_hostname"
+type = "stcp"
+secretKey = "abcdefg"
+# LAN IP of the host 
+localIP = "192.168.17.14"
+localPort = 5201
+
+[[proxies]]
+name = "secret_iperf_xtcp_hostname"
+type = "xtcp"
+secretKey = "abcdefg"
+# LAN IP of the host 
+localIP = "192.168.17.14"
+localPort = 5201
+
